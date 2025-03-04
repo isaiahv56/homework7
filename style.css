@@ -17,51 +17,87 @@ body {
 
 /* Header */
 .header {
+    position: fixed; /* Fixes the header at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
     background: #333;
     color: white;
-    text-align: center;
-    padding: 0%;
-    font-size: 18px;
-    width: 100%;
-    position: relative;
-    top: 0;
-    left: 0;
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    padding: 0px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adds slight shadow */
+    z-index: 1000; /* Ensures it's above other elements */
+    flex-shrink: 0; /* Prevents shrinking on resize */
 }
 
-/* Sidebar Navigation */
-.sidebar {
-    width: 250px;
-    background: #222;
-    padding: 10px;
-    color: white;
-    position: fixed;
-    left: 0;
+    
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: center;  /* Center items horizontally */
+    align-items: center;      /* Center items vertically */
+    background: #222;         /* Dark background */
+    padding: 15px 0;          /* Padding for better spacing */
+    position: fixed;          /* Fix navbar at the top */
+    width: 100%;              /* Full width */
     top: 0;
-    height: 100%;
-    overflow-y: hidden;
-    transition: transform 0.3s ease-in-out;
+    left: 0;
+    z-index: 1000;            /* Ensure it stays on top */
+height: 60px;
 }
 
-.sidebar ul {
-    list-style: none;
+
+/* Navigation List */
+.nav-list {
+    display: flex;
+    width: 100%;              /* Make sure it spans the full width */
     padding: 0;
+    margin: 0;
+    list-style: none;
 }
-.sidebar ul li {
-    margin: 10px 0;
+
+/* Navigation Items */
+.nav-list li {
+    flex-grow: 1;             /* Make each item take equal space */
+    text-align: center;       /* Center text */
 }
-.sidebar ul li a {
+
+/* Navigation Links */
+.nav-list li a {
+    display: block;           /* Make the links fill the li */
     color: white;
     text-decoration: none;
-    display: block;
-    padding: 10px;
-    background: #444;
-    border-radius: 5px;
+    padding: 15px 20px;       /* Adjust padding for spacing */
+    font-size: 18px;
     transition: background 0.3s;
 }
-.sidebar ul li a:hover {
-    background: #666;
+
+/* Hover Effect */
+.nav-list li a:hover {
+    background: #444;         /* Slightly lighter on hover */
 }
+
+/* Resume Button Special Styling */
+.resume-button {
+    background: #ff9800;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.resume-button:hover {
+    background: #e68900;
+}
+
+
+
+
 .resume-button {
     display: block;
     margin-top: 20px;
@@ -71,19 +107,50 @@ body {
     text-decoration: none;
     border-radius: 5px;
     text-align: center;
-    transition: background 0.3s;
+    transition: background 0.3s; border-radius: 0.3s; box-shadow: 0.3s;
 }
 .resume-button:hover {
     background: #e68900;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 /* Main Content */
-.content {
-    flex-grow: 1;
-    margin-left: 250px;
-    padding: 20px;
-    max-width: 1000px;
+.main-container {
+    display: flex;          /* Enables flexbox */
+    flex-direction: column; /* Stacks sections vertically */
+    flex-wrap: wrap;        /* Allows wrapping when resizing */
+    justify-content: flex-start;
+    align-items: center;    /* Centers content */
+    padding: 20px;         /* Adds space around the sections */
+    margin: 0 auto;        /* Centers the container */
+    max-width: 1200px;     /* Prevents content from being too wide */
+    padding-top: 100px; /* Push content down so it's not hidden behind the fixed header */
+    padding-bottom: 60px; /* Push content up so it's not hidden behind the fixed footer */
 }
+
+/* Sections inside Main Container */
+.main-container section {
+    flex-grow: 1;           /* Sections expand equally */
+    flex-shrink: 1;         /* Sections shrink when space is limited */
+    width: 100%;            /* Ensures sections take up full width */
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 10px;      /* Less padding on smaller screens */
+    }
+    .main-container section {
+        width: 100%;       /* Ensures sections stack properly */
+    }
+}
+
 
 /* Sections */
 section {
@@ -95,37 +162,117 @@ section {
 }
 
 /* Skills Section */
-.skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+/* Skills Section */
+.skills-grid {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.skills-container span {
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Responsive Grid */
+    gap: 10px;
+    padding: 10px;
+}
+
+.skill {
     background: #333;
     color: white;
-    padding: 5px 10px;
+    padding: 10px;
+    text-align: center;
     border-radius: 5px;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+/* Highlight Important Skills */
+.skill.highlight {
+    grid-column: span 2; /* Make it take more space */
+    background: #bd16d6;
+    font-weight: bold;
 }
 
 /* Projects Section */
 .projects-grid {
-    display: -moz-stack;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive Grid */
+    gap: 20px;
+    padding: 10px;
+}
+
 .project {
     background: white;
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Highlight Important Projects */
+.project.highlight {
+    grid-column: span 2; /* Makes it take more width */
+    background: #ff9800;
+    font-weight: bold;
+}
+
+/* Hover Effects */
+.skill:hover, .project:hover {
+    transform: scale(1.05);
+    background-color: lightblue;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .skill.highlight, .project.highlight {
+        grid-column: span 1; /* Reset spanning on smaller screens */
+    }
 }
 
 /* Footer */
 .footer {
-    position: relative;
+    position: fixed; /* Fixes the footer at the bottom */
+    bottom: 0;
+    left: 0;
+    width: 100%;
     background: #333;
     color: white;
-    text-align: center;
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
     padding: 10px;
-    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    flex-shrink: 0; /* Prevents shrinking on resize */
+}
+
+
+@keyframes spinner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ccc;
+    border-top-color: blue;
+    border-radius: 50%;
+    animation: spinner 1s linear infinite, fadeOut 1s ease-in-out forwards 2s;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
 }

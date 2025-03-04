@@ -7,13 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="loader"></div>
     <header class="header">
         <h1 id="name">Isaiah Veloz</h1>
-        <h2 id="title">Aspiring Cybersecurity Specialist</h2>
+        <h2 id="title"> Isaiah Veloz </h2>
+        <h3>Aspiring Cybersecurity Specialist</h3>
     </header>
     
-    <nav class="sidebar">
-        <ul>
+    <nav class="navbar">
+        <ul class="nav-list">
             <li><a href="#summary">Summary</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -24,30 +26,42 @@
         </ul>
     </nav>
     
-    <main class="content">
-        <section id="summary">
-            <h3>Summary</h3>
-            <p>Hello! My name is <strong>Isaiah Veloz</strong>. I am currently pursuing a degree in cybersecurity at NAU. I am passionate about building secure systems, solving complex problems, and contributing to the ever-changing field of technology.</p>
-        </section>
-        
-        <section id="skills" class="skills-container">
+    
+    <main class="main-container">
+        <section id="skills" class="skills-grid">
             <h3>Skills</h3>
-            <ul>
-                <li><strong>Programming:</strong> C, Python, HTML, CSS</li>
-                <li><em>Problem-Solving:</em> Logical and Creative Thinking</li>
-                <li><mark>Cybersecurity:</mark> Network Security, Ethical Hacking</li>
-            </ul>
-        </section>
-        
-        <section id="projects" class="projects-grid">
-            <h3>Projects</h3>
-            <div class="project">
-                <h4>Portfolio Website</h4>
-                <p>A personal portfolio showcasing my skills and projects.</p>
-                <img src="hacker-typer-fake-code-generator.png" alt="fake code">
+            <div class="skills-container">
+                <div class="skill">C</div>
+                <div class="skill">Python</div>
+                <div class="skill">HTML</div>
+                <div class="skill">CSS</div>
+                <div class="skill">Network Security</div>
+                <div class="skill">Ethical Hacking</div>
+                <div class="skill highlight">Problem-Solving</div>
             </div>
         </section>
         
+    
+       <section id="projects" class="projects-grid">
+    <h3>Projects</h3>
+    <div class="projects-container">
+        <div class="project">
+            <h4>Portfolio Website</h4>
+            <p>A personal portfolio showcasing my skills and projects.</p>
+            <img src="hacker-typer-fake-code-generator.png" alt="Fake Code">
+        </div>
+        <div class="project">
+            <h4>Cybersecurity Tool</h4>
+            <p>A basic security tool to scan and analyze networks.</p>
+        </div>
+        <div class="project highlight">
+            <h4>Advanced Threat Detection System</h4>
+            <p>A project focused on AI-driven cybersecurity threat detection.</p>
+        </div>
+    </div>
+</section>
+
+    
         <section id="education">
             <h3>Education</h3>
             <table>
@@ -72,7 +86,7 @@
                 </tbody>
             </table>
         </section>
-        
+    
         <section id="experience">
             <h3>Experience</h3>
             <table>
@@ -93,6 +107,7 @@
             </table>
         </section>
     </main>
+    
     
     <footer class="footer">
         <h3>Contact Information</h3>
