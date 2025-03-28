@@ -62,19 +62,11 @@
         <h3>Aspiring Cybersecurity Specialist</h3>
     </header>
     
-    <div class="container mt-5">
-        <section id="skills" class="mb-5">
-            <h3 class="text-center">Skills</h3>
-            <div class="row text-center">
-                <div class="col-md-3">C</div>
-                <div class="col-md-3">Python</div>
-                <div class="col-md-3">HTML</div>
-                <div class="col-md-3">CSS</div>
-                <div class="col-md-3">Network Security</div>
-                <div class="col-md-3">Ethical Hacking</div>
-                <div class="col-md-3">Problem-Solving</div>
-            </div>
-        </section>
+    <div class="text-center mb-3">
+        <input type="text" id="skillInput" placeholder="Enter a skill" class="form-control w-50 d-inline-block">
+        <button onclick="addSkill()" class="btn btn-primary ms-2">Add Skill</button>
+    </div>
+    <ul id="skillsList" class="list-group list-group-flush text-center"></ul>
     
         <section id="projects" class="mb-5">
             <h3 class="text-center">Projects</h3>
@@ -130,7 +122,7 @@
                 </tbody>
             </table>
         </section>
-    
+    <div>
         <section id="experience">
             <h3 class="text-center">Experience</h3>
             <table class="table table-bordered table-striped">
@@ -150,6 +142,18 @@
                 </tbody>
             </table>
         </section>
+    </div>
+    <div class="container text-center mb-4">
+        <h4>Customize Page</h4>
+        <button id="themeToggleBtn" class="btn btn-secondary mb-2">Toggle Light/Dark Theme</button>
+        <div class="mb-2">
+            <label for="fontSizeInput">Font Size:</label>
+            <input type="number" id="fontSizeInput" value="16" min="12" max="30"> px
+        </div>
+        <div class="mb-3">
+            <label for="bgColorInput">Background Color:</label>
+            <input type="color" id="bgColorInput" value="#f4f4f4">
+        </div>
     </div>
     
     <footer class="footer">
